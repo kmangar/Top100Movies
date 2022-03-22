@@ -14,13 +14,9 @@ soup = BeautifulSoup(movies_webpage, "html.parser")
 # use findAll to get the movie names
 movies = soup.findAll(name="h3", class_="title")
 
-# initialize an array to store the movies
-movie_title = []
-
+# initialize and store movies
 # use the for loop to store the movie in the list
-for movie in movies:
-    movie_name = movie.get_text()
-    movie_title.append(movie_name)
+movie_title = [movie.getText() for movie in movies]
 
 # reverses the list because the websites list the movies in descending order
 movie_title.reverse()
